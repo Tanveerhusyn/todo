@@ -1,0 +1,13 @@
+*{
+  font-family: sans-serif;
+
+}
+
+body{
+  background-image: url('./assets/img/backImg.png');
+  object-fit:cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: center top;
+}
