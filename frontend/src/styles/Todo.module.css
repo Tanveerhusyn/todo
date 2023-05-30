@@ -96,8 +96,8 @@
     margin-right: 10px;
   }
   .btnSection{
-    width: fit-content;
     display: flex;
+    
     justify-content: space-around;
     align-items: center;
   }

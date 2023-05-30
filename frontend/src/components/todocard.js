@@ -39,6 +39,7 @@ const TodoCard = ({ todo, onDelete, onComplete }) => {
       <div className={styles.mainContainer}>
         <label className={styles.checkboxContainer}>
           <input
+            id="checkbox"
             type="checkbox"
             className={styles.checkbox}
             checked={isChecked}
@@ -61,21 +62,21 @@ const TodoCard = ({ todo, onDelete, onComplete }) => {
         </div>
       </div>
 
-      <div className={styles.dots} onClick={handleDotClick}>
+      <div id='dotBtn' className={styles.dots} onClick={handleDotClick}>
         <Dots />
       </div>
       
       {isDeleting && (
         <button 
         
-        data-testid="delete-button"
+        id="delete-button"
         className={styles.deleteButton} onClick={handleDelete}>
           Delete
         </button>
       )}
       {isDeleting && (
         <button
-           
+          id="cancel-button"
           className={styles.cancelDeleteButton}
           onClick={() => handleCancelDelete()}
         >

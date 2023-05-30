@@ -57,13 +57,14 @@ const Todo = () => {
       <div className={styles.inputSection}>
         <input
           className={styles.inputbox}
+          id='textInput'
           type="text"
           placeholder="Enter a new Task..."
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
           onKeyDown={handleKeyPress}
         />
-        <button onClick={handleAddTask} className={styles.addBtn}>
+        <button id="addBtn" onClick={handleAddTask} className={styles.addBtn}>
           Add
         </button>
       </div>
