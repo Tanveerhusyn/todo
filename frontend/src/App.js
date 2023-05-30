@@ -4,7 +4,7 @@ import Todo from './pages/todo';
 
 function App() {
   return (
-    <div className="App">
+    <div className="blur-background">
      <Todo/>
     </div>
   );

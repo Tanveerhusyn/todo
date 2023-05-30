@@ -1,0 +1,88 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: fit-content;
+  flex-direction: column;
+  width: 90vw;
+  height: 100vh;
+
+}
+
+.todoList {
+  background: #fff;
+  display: flex;
+  width: 90%;
+
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  height: 30px;
+
+  overflow: hidden;
+  height: fit-content;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.inputSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  width: 92%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  outline: none;
+  margin: 20px;
+}
+.inputbox {
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  outline: none;
+}
+
+.hideTodo {
+  display: none;
+}
+.avatarSection{
+  margin:20px;
+ 
+}
+.addBtn {
+  background: #9E9378;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  width: 110px;
+  padding: 8px 16px;
+}
+.divider {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.todoList .divider:last-child {
+  display: none;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
