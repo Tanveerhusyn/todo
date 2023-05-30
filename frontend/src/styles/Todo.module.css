@@ -91,6 +91,11 @@
     color: #777;
     margin-top: 5px;
   }
+
+  .sudoDiv{
+    width: 130px;
+   
+  }
   
   .creationTime {
     margin-right: 10px;

@@ -61,7 +61,9 @@ const TodoCard = ({ todo, onDelete, onComplete }) => {
         </div>
         </div>
       </div>
-
+      {
+        isDeleting && !completed && <div className={styles.sudoDiv}></div>
+      }
       <div id='dotBtn' className={styles.dots} onClick={handleDotClick}>
         <Dots />
       </div>
@@ -83,6 +85,7 @@ const TodoCard = ({ todo, onDelete, onComplete }) => {
           Cancel
         </button>
       )}
+     
        
     </div>
   );
