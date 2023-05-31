@@ -1,19 +1,13 @@
 version: '3'
-services:
-  frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    ports:
-      - 3000:3000
-    volumes:
-      - ./frontend:/app
 
+services:
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: tanveer465/td_backend
     ports:
       - 5000:5000
-    volumes:
-      - ./backend:/app
+  
+  frontend:
+    image: tanveer465/td_frontend
+    ports:
+      - 3000:3000
+
