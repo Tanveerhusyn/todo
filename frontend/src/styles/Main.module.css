@@ -55,6 +55,18 @@
   margin:20px;
  
 }
+.toastBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #9E9378;
+  color: #ffffff;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  width: 110px;
+  padding: 7px;
+}
 .addBtn {
   background: #9E9378;
   color: #ffffff;
@@ -62,7 +74,7 @@
   cursor: pointer;
   border: none;
   width: 110px;
-  padding: 8px 16px;
+  padding: 9px 23px;
 }
 .divider {
   margin: 10px 0;

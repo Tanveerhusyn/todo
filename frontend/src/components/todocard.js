@@ -3,12 +3,13 @@ import { HiCheck } from "react-icons/hi";
 import styles from "../styles/Todo.module.css";
 import Dots from "./dots";
 import moment from "moment";
-
-const TodoCard = ({ todo, onDelete, onComplete }) => {
+import {  ThreeCircles } from "react-loader-spinner";
+const TodoCard = ({ todo, onDelete, onComplete,isLoading }) => {
   const { task, _id: taskId, completed, completedTime, creationTime } = todo;
 
   const [isChecked, setIsChecked] = useState(completed);
   const [isDeleting, setIsDeleting] = useState(false);
+ 
 
   const handleCheckboxChange = (event) => {
     onComplete(todo, event.target.checked);
@@ -16,8 +17,11 @@ const TodoCard = ({ todo, onDelete, onComplete }) => {
   };
 
   const handleDelete = (taskid) => {
-    onDelete(taskId);
-    setIsDeleting(false);
+ 
+      onDelete(taskId);
+      setIsDeleting(false);
+       
+     
   };
 
   const handleDotClick = () => {
@@ -48,35 +52,34 @@ const TodoCard = ({ todo, onDelete, onComplete }) => {
           <span className={styles.checkmark}>{isChecked && <HiCheck />}</span>
         </label>
         <div className={styles.content}>
-        <div className={styles.task}>{task}</div>
-        <div className={styles.time}>
-          <span className={styles.creationTime}>
-            Created: {formatDateTime(creationTime)}
-          </span>
-          {completedTime && (
-            <span className={styles.completedTime}>
-              Completed: {formatDateTime(completedTime)}
+          <div className={styles.task}>{task}</div>
+          <div className={styles.time}>
+            <span className={styles.creationTime}>
+              Created: {formatDateTime(creationTime)}
             </span>
-          )}
-        </div>
+            {completedTime && (
+              <span className={styles.completedTime}>
+                Completed: {formatDateTime(completedTime)}
+              </span>
+            )}
+          </div>
         </div>
       </div>
-      {
-        isDeleting && !completed && <div className={styles.sudoDiv}></div>
-      }
-      <div id='dotBtn' className={styles.dots} onClick={handleDotClick}>
+      {isDeleting && !completed && <div className={styles.sudoDiv}></div>}
+      <div id="dotBtn" className={styles.dots} onClick={handleDotClick}>
         <Dots />
       </div>
-      
-      {isDeleting && (
-        <button 
-        
-        id="delete-button"
-        className={styles.deleteButton} onClick={handleDelete}>
+
+      {!isLoading && isDeleting && (
+        <button
+          id="delete-button"
+          className={styles.deleteButton}
+          onClick={handleDelete}
+        >
           Delete
         </button>
       )}
-      {isDeleting && (
+      {!isLoading && isDeleting && (
         <button
           id="cancel-button"
           className={styles.cancelDeleteButton}
@@ -85,8 +88,21 @@ const TodoCard = ({ todo, onDelete, onComplete }) => {
           Cancel
         </button>
       )}
-     
-       
+
+      {isLoading && isDeleting &&(
+        <ThreeCircles
+          height="25"
+          width="25"
+          color="#9E9378"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={isLoading}
+          ariaLabel="three-circles-rotating"
+          outerCircleColor=""
+          innerCircleColor=""
+          middleCircleColor=""
+        />
+      )}
     </div>
   );
 };

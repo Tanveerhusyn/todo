@@ -3,6 +3,10 @@ const taskController = require('../controllers/taskController');
 
 const router = express.Router();
 
+router.get('/welcome', (req,res)=>{
+    res.status(200).send("Done")
+})
+
 // Create a new task
 router.post('/', taskController.createTask);
 
