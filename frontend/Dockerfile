@@ -13,11 +13,11 @@ RUN npm install
 # Copy the rest of the app's source code to the container
 COPY . .
 
+# Set the environment variable for the React app
+ENV NODE_ENV=production
 # Build the React app
 RUN npm run build
 
-# Set the environment variable for the React app
-ENV NODE_ENV=production
 
 # Expose the port on which the React app will run
 EXPOSE 3000

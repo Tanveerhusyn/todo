@@ -46,10 +46,10 @@ const TodoCard = ({ todo, onDelete, onComplete,isLoading }) => {
             id="checkbox"
             type="checkbox"
             className={styles.checkbox}
-            checked={isChecked}
+            checked={completed}
             onChange={handleCheckboxChange}
           />
-          <span className={styles.checkmark}>{isChecked && <HiCheck />}</span>
+          <span className={styles.checkmark}>{completed && <HiCheck />}</span>
         </label>
         <div className={styles.content}>
           <div className={styles.task}>{task}</div>

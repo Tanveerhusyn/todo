@@ -16,18 +16,24 @@ const Todo = () => {
     error,
     createTodo,
     updateTodo,
+    event,
     deleteTodo,
   } = useQuery();
   const notify = () => toast.error(error.message);
 
   const [newTask, setNewTask] = useState("");
   const [isTaskLoading, setIsTaskLoading] = useState(false);
+  const [trigger, setTrigger] = useState(false);
 
   useEffect(() => {
     if (error) {
       notify();
     }
-  }, [error]);
+    if(event!=""){
+      const emit = () => toast(event);
+      emit()
+    }
+  }, [error,event,trigger]);
   //Add new task
   const handleAddTask = () => {
     if (newTask.trim() !== "") {
@@ -62,6 +68,7 @@ const Todo = () => {
       completedTime: event == true ? new Date() : null,
     };
     updateTodo(todo._id, updatedData);
+    setTrigger(true)
   };
 
   return (
