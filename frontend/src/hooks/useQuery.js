@@ -8,10 +8,9 @@ function useQuery() {
   const [isDeletionLoading, setDeletionLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const baseURL = BACKEND_URL_DEVELOPMENT;
-  //process.env.NODE_ENV=="production"?BACKEND_URL_DEVELOPMENT:BACKEND_URL_PRODUCTION;
+  const baseURL = process.env.NODE_ENV=="production"?process.env.REACT_APP_API_URL:"http://localhost:5000";
  console.log(process.env.NODE_ENV)
-  console.log(baseURL)
+ 
 
   useEffect(() => {
     async function fetchTodos() {
