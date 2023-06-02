@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BACKEND_URL_DEVELOPMENT,BACKEND_URL_PRODUCTION } from '../assets/constants';
+
 function useQuery() {
   const [todos, setTodos] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -9,7 +9,7 @@ function useQuery() {
   const [error, setError] = useState(null);
 
   const baseURL = process.env.NODE_ENV=="production"?process.env.REACT_APP_API_URL:"http://localhost:5000";
- console.log(process.env.NODE_ENV)
+
  
 
   useEffect(() => {

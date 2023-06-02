@@ -49,6 +49,13 @@ The TODO App uses Cypress for end-to-end testing. To run the tests, ensure that 
    npx cypress open
    ```
 
+![Testing image](backendtest.jpg)
+
+The application uses jest for testing the backend. Run the following command to test the backend:
+```shell
+   npm test
+   ```
+
 
 ## Contributing
 Contributions to the TODO App are welcome! If you encounter any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request. Make sure to follow the existing coding style and include appropriate test coverage.
