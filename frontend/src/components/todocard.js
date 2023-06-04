@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HiCheck } from "react-icons/hi";
 import styles from "../styles/Todo.module.css";
 import Dots from "./dots";
 import moment from "moment";
-import {  ThreeCircles } from "react-loader-spinner";
-const TodoCard = ({ todo, onDelete, onComplete,isLoading }) => {
+import { ThreeCircles } from "react-loader-spinner";
+const TodoCard = ({ todo, onDelete, onComplete, isLoading }) => {
   const { task, _id: taskId, completed, completedTime, creationTime } = todo;
 
   const [isChecked, setIsChecked] = useState(completed);
   const [isDeleting, setIsDeleting] = useState(false);
- 
+
+  useEffect(() => {
+    if (!isLoading) {
+      setIsDeleting(false);
+    }
+  }, [isLoading]);
+
 
   const handleCheckboxChange = (event) => {
     onComplete(todo, event.target.checked);
@@ -17,11 +23,7 @@ const TodoCard = ({ todo, onDelete, onComplete,isLoading }) => {
   };
 
   const handleDelete = (taskid) => {
- 
-      onDelete(taskId);
-      setIsDeleting(false);
-       
-     
+    onDelete(taskId);
   };
 
   const handleDotClick = () => {
@@ -89,7 +91,7 @@ const TodoCard = ({ todo, onDelete, onComplete,isLoading }) => {
         </button>
       )}
 
-      {isLoading && isDeleting &&(
+      {isLoading && isDeleting && (
         <ThreeCircles
           height="25"
           width="25"
